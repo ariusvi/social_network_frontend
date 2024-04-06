@@ -9,3 +9,16 @@
     justify-content: center;
     align-items: center;
 }
+
+.outDesign{
+    color: #DAA520;
+    font-weight: bold;
+    transition: 0.2s;
+    margin: 1em;
+}
+
+.outDesign:hover{
+    color: 	#F0E68C;
+    transition: 0.2s;
+    cursor: pointer;
+}
