@@ -20,8 +20,6 @@ export const Header = () => {
         console.log(reduxUser, "credenciales pasaporte")
     }, [reduxUser])
 
-    const navigate = useNavigate();
-
     return (
         <div className='headerDesign'>
             <CustomLink title="Home" destination="/" />
