@@ -1,10 +1,21 @@
-import { CustomInput } from '../../common/CustomInput/CustomInput';
-import { loginUser } from '../../services/apiCalls';
 import "./Login.css"
 
+import { CustomInput } from '../../common/CustomInput/CustomInput';
+import { loginUser } from '../../services/apiCalls';
+import {useNavigate} from 'react-router-dom';
 import React, { useState } from "react";
+import { decodeToken } from "react-jwt";
+
+//redux
+import { login } from "../../app/slices/userSlice";
+import { useDispatch } from "react-redux";
 
 export const Login = () => {
+
+    const navigate = useNavigate();
+
+    //redux to write mode
+    const dispatch = useDispatch();
 
     const [user, setUser] = useState({
         email: "",
@@ -20,7 +31,17 @@ export const Login = () => {
 
     const loginMe = async () => {
         const fetched = await loginUser(user)
-        console.log(fetched , 'fetched')
+
+        if (fetched.token) {
+            const decoded = decodeToken(fetched.token)
+
+            const passport = {
+                token: fetched.token,
+                user: decoded
+            } 
+
+            dispatch(login({credentials: passport}))
+        }
     }
 
     return (
