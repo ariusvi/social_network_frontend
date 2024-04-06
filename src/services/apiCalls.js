@@ -11,7 +11,6 @@ export const loginUser = async (user) => {
     };
 
     try {
-        // auth/login
         const response = await fetch(`${root}auth/login`, options)
         const data = await response.json()
 
@@ -21,7 +20,7 @@ export const loginUser = async (user) => {
 
         return data;
     } catch (error) {
-        return error
+        throw error;
     }
 
 };
