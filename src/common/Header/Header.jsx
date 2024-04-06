@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { userData, logout } from '../../app/slices/userSlice';
 import { useEffect } from 'react';
 import { CustomInput } from '../CustomInput/CustomInput';
+import { updateSearch } from '../../app/slices/searchSlice';
 
 
 export const Header = () => {
@@ -18,7 +19,6 @@ export const Header = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(reduxUser, "credenciales pasaporte")
     }, [reduxUser])
 
     const [criteria, setCriteria] = useState("");
@@ -26,6 +26,13 @@ export const Header = () => {
     const searchHandler = (e) => {
         setCriteria(e.target.value);
     };
+
+    useEffect(() => {
+        if(criteria !== ""){
+            dispatch(updateSearch(criteria));
+        }
+    }
+    , [criteria])
 
 
     return (

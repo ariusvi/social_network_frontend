@@ -7,8 +7,9 @@ export const searchSlice = createSlice({
         criteria:""
     },
     reducers: {
-        updateSearch: (action) => {
+        updateSearch: (state, action) => {
             return {
+                ...state,
                 criteria: action.payload
             }
         },
