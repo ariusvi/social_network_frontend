@@ -22,3 +22,17 @@
     transition: 0.2s;
     cursor: pointer;
 }
+
+.searchInput{
+    height: 1.5em;
+    width: 12em;
+
+    border-radius: 0.5em;
+    color:black;
+    font-style: bold;
+    border: 0.2em solid #8C530A;
+    background-color: #c1a44d;
+    margin: 1.5em;
+
+    cursor: text;
+}

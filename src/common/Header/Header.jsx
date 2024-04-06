@@ -1,11 +1,12 @@
 import './Header.css'
 import { CustomLink } from '../CustomLink/CustomLink'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
 import { userData, logout } from '../../app/slices/userSlice';
 import { useEffect } from 'react';
+import { CustomInput } from '../CustomInput/CustomInput';
 
 
 export const Header = () => {
@@ -20,8 +21,23 @@ export const Header = () => {
         console.log(reduxUser, "credenciales pasaporte")
     }, [reduxUser])
 
+    const [criteria, setCriteria] = useState("");
+
+    const searchHandler = (e) => {
+        setCriteria(e.target.value);
+    };
+
+
     return (
         <div className='headerDesign'>
+            <CustomInput 
+            className="searchInput" 
+            type="text" 
+            name="search" 
+            value={criteria || ""}
+            placeholder="Search..."
+            changeEmit={searchHandler}
+            />
             <CustomLink title="Home" destination="/" />
             {reduxUser?.credentials?.token
                 ? (
