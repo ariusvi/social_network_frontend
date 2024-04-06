@@ -1,0 +1,17 @@
+.inputDesign {
+    height: 3em;
+    width: 18em;
+
+    border-radius: 0.5em;
+    color:black;
+    font-style: bold;
+    border: 0.2em solid #8C530A;
+    background-color: #c1a44d;
+    margin: 1.5em;
+
+    cursor: pointer;
+}
+
+.inputDesignError{
+    border: 0.2em solid #CA2F2F;
+}
