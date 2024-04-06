@@ -6,6 +6,7 @@ import {useNavigate} from 'react-router-dom';
 import React, { useState } from "react";
 import { decodeToken } from "react-jwt";
 
+
 //redux
 import { login } from "../../app/slices/userSlice";
 import { useDispatch } from "react-redux";
@@ -40,7 +41,8 @@ export const Login = () => {
                 user: decoded
             } 
 
-            dispatch(login({credentials: passport}))
+            dispatch(login({credentials: passport})) 
+            setTimeout(() => {navigate('/home')}, 500)
         }
     }
 

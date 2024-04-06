@@ -1,6 +1,6 @@
 import "./CustomInput.css"
 
-export const CustomInput = ({className, type, name, value, placeholder, changeEmit, }) => {
+export const CustomInput = ({className, type, name, value, placeholder, changeEmit,}) => {
 
     return (
         <input 
