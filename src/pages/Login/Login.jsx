@@ -47,6 +47,7 @@ export const Login = () => {
     return (
         <>
             <div className='loginDesign'>
+                <div className="paper">
                 <CustomInput
                     className="inputDesign"
                     type="email"
@@ -64,6 +65,7 @@ export const Login = () => {
                     changeEmit={inputHandler}
                 />
                 <button className='loginButton' onClick={loginMe}></button>
+                </div>
             </div>
         </>
     )
