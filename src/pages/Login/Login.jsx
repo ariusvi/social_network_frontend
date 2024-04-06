@@ -1,4 +1,4 @@
-import "./Login.css"
+import './Login.css';
 
 import { CustomInput } from '../../common/CustomInput/CustomInput';
 import { loginUser } from '../../services/apiCalls';
@@ -50,6 +50,8 @@ export const Login = () => {
         <>
             <div className='loginDesign'>
                 <div className="paper">
+                    <div className="loginTitle">Login</div>
+                    Email:
                 <CustomInput
                     className="inputDesign"
                     type="email"
@@ -58,6 +60,7 @@ export const Login = () => {
                     placeholder="email"
                     changeEmit={inputHandler}
                 />
+                Password:
                 <CustomInput
                     className="inputDesign"
                     type="password"

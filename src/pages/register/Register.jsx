@@ -76,6 +76,7 @@ export const Register = () => {
             <div className='registerDesign'>
             
                 <div className="paper">
+                    <div className="registerTitle">Register</div>
                     Nickname:
                 <CustomInput
                     className="inputDesign"
