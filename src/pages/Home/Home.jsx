@@ -13,7 +13,6 @@ export const Home = () => {
     const searchRedux = useSelector(searchData);
 
     useEffect(() => {
-        console.log(searchRedux)
     }, [searchRedux]); 
 
     return (

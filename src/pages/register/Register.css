@@ -14,7 +14,7 @@
 }
 
 .paper{
-    height: 50em;
+    height: 90em;
     width: 30em;
 
     margin: 1.5em;
@@ -33,7 +33,7 @@
 }
 
 .registerButton{
-    height: 8em;
+    height: 6.5em;
     width: 8em;
 
     background-color: transparent;
@@ -46,7 +46,6 @@
 
 .error{
     color:darkred;
-    font-weight: bold;
 }
 
 .registerTitle{

@@ -11,6 +11,7 @@ export const Profile = () => {
 
     //redux to read mode
     const reduxUser = useSelector(userData);
+    console.log(reduxUser);
 
     useEffect(() => {
 

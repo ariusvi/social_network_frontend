@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 export const Register = () => { 
 
-    const dispatch = useDispatch();
     const register = useSelector(state => state.user.register);
     const error = useSelector(state => state.user.error);
     const [errorMessage, setErrorMessage] = useState("");
@@ -49,7 +48,7 @@ export const Register = () => {
 
             for (let element in user) {
                 if (user[element] === "") {
-                    throw new Error("Todos los campos tienen que estar completos")
+                    throw new Error("All fields must be complete")
                 }
             }
 
@@ -61,12 +60,10 @@ export const Register = () => {
 
             setMsgError(fetched.message);
 
-                dispatch(okRegister());
                 setTimeout(() => { navigate("/login") }, 820)
 
         } catch (error) {
             setErrorMessage(error.message);
-            dispatch(notRegister(error.message))
         }
 
     }

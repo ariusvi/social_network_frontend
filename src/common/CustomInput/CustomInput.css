@@ -7,11 +7,11 @@
     font-style: bold;
     border: 0.2em solid #8C530A;
     background-color: #c1a44d;
-    margin: 1.5em;
+    margin: 1em;
 
     cursor: pointer;
 }
 
 .inputDesignError{
-    border: 0.2em solid #CA2F2F;
+    border: 0.2em solid darkred;
 }

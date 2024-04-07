@@ -1,10 +1,15 @@
 .profileDesign {
+    height: 88vh;
+    width: 100vw;
+
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    height: 100vh;
-    background-color: #301b98;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #303a6bdd;
+    color: grey;
+    font-weight: bold;
 }
 
 .profileData{
@@ -25,5 +30,5 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    color:black;
+    color:grey;
 }
