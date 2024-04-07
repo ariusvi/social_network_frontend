@@ -1,6 +1,6 @@
 import "./Profile.css";
 
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { userData } from "../../app/slices/userSlice";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -11,11 +11,10 @@ export const Profile = () => {
 
     //redux to read mode
     const reduxUser = useSelector(userData);
-    console.log(reduxUser);
 
     useEffect(() => {
 
-        if(!reduxUser.credentials.token){
+        if (!reduxUser.credentials.token) {
             navigate('/login')
         }
     }, [reduxUser])
@@ -23,14 +22,17 @@ export const Profile = () => {
 
     return (
         <>
-        {/* revisar esto */}
-            <div className='profileDesign'> 
+            <div className='profileDesign'>
                 <div className='profileData'>
-                    <div className='profileDataInfo'>{reduxUser.credentials.user.avatar} AQUÍ VA EL AVATAR</div>
-                    <div className='profileDataTitle'>Nickname:</div>
-                    <div className='profileDataInfo'>{reduxUser.credentials.user.nickname}</div>
-                    <div className='profileDataTitle'>Biography:</div>
-                    <div className='profileDataInfo'>{reduxUser.credentials.user.biography} AQUÍ IRÁ LA BIOGRAFIA BLAH BLAH</div>
+                    <div></div>
+                    <div>
+                        <img
+                            className="avatarProfile"
+                            src={reduxUser.credentials.user.avatar}
+                            alt="user's avatar"></img>
+                            <div className="nickname">{reduxUser.credentials.user.nickname}</div>
+                            </div>
+                    <div>{reduxUser.credentials.user.biography}</div>
                 </div>
             </div>
         </>
