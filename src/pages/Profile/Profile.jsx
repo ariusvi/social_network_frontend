@@ -29,7 +29,8 @@ export const Profile = () => {
                         <img
                             className="avatarProfile"
                             src={reduxUser.credentials.user.avatar}
-                            alt="user's avatar"></img>
+                            alt="user's avatar">
+                        </img>
                             <div className="nickname">{reduxUser.credentials.user.nickname}</div>
                             </div>
                     <div>{reduxUser.credentials.user.biography}</div>
