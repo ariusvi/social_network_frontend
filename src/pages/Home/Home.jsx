@@ -42,16 +42,15 @@ export const Home = () => {
     return (
         <>
             <div className='homeDesign'>
-                soy el home
-
                 <div className='postsRoster'>
                     {posts.map(post => {
                         return (
-                            <div key={post.id} className='cardDesign'>
-                                <div className='cardTitle'>{post.title}</div>
-                                <div><img src={post.image} alt="post's image"></img></div>
+                            <div key={post._id} className='postDesign'>
+                                <div> </div>
+                                <div className='postTitle'>{post.title}</div>
+                                <div ><img className='postImage' src={post.image} alt="post's image"></img></div>
                                 <div>{post.text}</div>
-                                <div>{post.author}</div>
+                                <div>{post.author.nickname}</div>
                                 <div>{post.likes}</div>
                             </div>
                         )
