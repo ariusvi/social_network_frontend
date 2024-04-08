@@ -52,7 +52,7 @@ export const Home = () => {
                             <div className='postDesign'>
                                 <div> </div>
                                 <div className='postTitle'>{post.title}</div>
-                                <div ><img className='postImage' src={post.image} alt="post's image"></img></div>
+                                <div >{post.image && <img className='postImage' src={post.image} alt="post's image"></img>}</div>
                                 <div>{post.text}</div>
                                 <div>{post.author.nickname}</div>
                                 <div>{post.likes}</div>
@@ -61,7 +61,7 @@ export const Home = () => {
                         )
                     })}
                 </div>
-                <button onClick={() => navigate('/newpost')}><img className='newPost' src={selloPost} alt="Sello Post"  /></button>
+                <div><img className='newPost' src={selloPost} alt="Sello Post" onClick={() => navigate('/newpost')} /></div>
             </div>
         </>
     )

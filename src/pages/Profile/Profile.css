@@ -58,3 +58,20 @@
     font-size: 2em;
     color: #b88914;
 }
+
+.newPost {
+    height: 15vh;
+
+    margin: 2em;
+
+    background-color: transparent;
+
+    position:fixed;
+    top: 10;
+    left: 20;
+    right: 0;
+    bottom: 0;
+
+    cursor: pointer;
+}
+

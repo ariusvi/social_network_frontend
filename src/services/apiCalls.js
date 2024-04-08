@@ -148,3 +148,4 @@ export const createPost = async (token, post) => {
             throw error;
         }
     }
+

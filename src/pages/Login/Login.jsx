@@ -50,7 +50,7 @@ export const Login = () => {
         <>
             <div className='loginDesign'>
                 <div className="paper">
-                    <div className="loginTitle">Login</div>
+                    <div className="loginTitle">Sig in</div>
                     Email:
                 <CustomInput
                     className="inputDesign"

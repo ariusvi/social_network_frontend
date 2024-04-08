@@ -5,6 +5,7 @@ import { userData } from "../../app/slices/userSlice";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getMyPosts } from "../../services/apiCalls";
+import selloPost from '../../img/sello_post.png'
 
 export const Profile = () => {
 
@@ -53,6 +54,7 @@ export const Profile = () => {
                     <div>{reduxUser.credentials.user.biography}</div>
                 </div>
                 </div>
+                <div><img className='newPost' src={selloPost} alt="Sello Post" onClick={() => navigate('/newpost')} /></div>
                 <div className='postsRoster'>
                     {myPosts.map(post => {
                         return (
@@ -60,7 +62,7 @@ export const Profile = () => {
                             <div className='postDesign'>
                                 <div> </div>
                                 <div className='postTitle'>{post.title}</div>
-                                <div ><img className='postImage' src={post.image} alt="post's image"></img></div>
+                                <div >{post.image &&<img className='postImage' src={post.image} alt="post's image"></img>}</div>
                                 <div>{post.text}</div>
                                 <div>{post.author.nickname}</div>
                                 <div>{post.likes}</div>

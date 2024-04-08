@@ -72,7 +72,7 @@ export const Register = () => {
             <div className='registerDesign'>
             
                 <div className="paper">
-                    <div className="registerTitle">Register</div>
+                    <div className="registerTitle">Sign up</div>
                     Nickname:
                 <CustomInput
                     className="inputDesign"
