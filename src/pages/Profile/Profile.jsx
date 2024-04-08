@@ -23,6 +23,7 @@ export const Profile = () => {
     return (
         <>
             <div className='profileDesign'>
+                <div className="paperProfile">
                 <div className='profileData'>
                     <div></div>
                     <div>
@@ -34,6 +35,7 @@ export const Profile = () => {
                             <div className="nickname">{reduxUser.credentials.user.nickname}</div>
                             </div>
                     <div>{reduxUser.credentials.user.biography}</div>
+                </div>
                 </div>
             </div>
         </>

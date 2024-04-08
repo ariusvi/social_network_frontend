@@ -45,6 +45,7 @@ export const Home = () => {
                 <div className='postsRoster'>
                     {posts.map(post => {
                         return (
+                            <div className='paperPost'>
                             <div key={post._id} className='postDesign'>
                                 <div> </div>
                                 <div className='postTitle'>{post.title}</div>
@@ -52,6 +53,7 @@ export const Home = () => {
                                 <div>{post.text}</div>
                                 <div>{post.author.nickname}</div>
                                 <div>{post.likes}</div>
+                            </div>
                             </div>
                         )
                     })}
