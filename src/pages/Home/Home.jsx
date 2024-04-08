@@ -2,11 +2,12 @@ import './Home.css'
 
 import { searchData } from '../../app/slices/searchSlice';
 import { getPosts } from '../../services/apiCalls';
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userData } from '../../app/slices/userSlice';
 import selloPost from '../../img/sello_post.png'
+
 
 export const Home = () => {
 
@@ -60,7 +61,7 @@ export const Home = () => {
                         )
                     })}
                 </div>
-                <div ><img className='newPost' src={selloPost} alt="Sello Post"  /></div>
+                <button onClick={() => navigate('/newpost')}><img className='newPost' src={selloPost} alt="Sello Post"  /></button>
             </div>
         </>
     )

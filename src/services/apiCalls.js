@@ -123,3 +123,28 @@ export const getMyPosts = async (token) => {
         throw error;
     }
 }
+
+export const createPost = async (token, post) => {
+    
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(post)
+        };
+    
+        try {
+            const response = await fetch(`${root}posts`, options);
+            const data = await response.json();
+    
+            if (!data.success) {
+                throw new Error(data.message);
+            }
+    
+            return data;
+        } catch (error) {
+            throw error;
+        }
+    }

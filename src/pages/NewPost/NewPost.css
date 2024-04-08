@@ -1,0 +1,28 @@
+.newPostDesign {
+    min-height: 90vh;
+    max-width: fit-content;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #303a6bdd;
+}
+
+.paperNewPost{
+    height: 70vh;
+    width: 60vw;
+
+    margin: 1.5em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-image: url(../../img/pergamino1.svg); 
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
