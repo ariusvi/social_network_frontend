@@ -73,3 +73,15 @@
     margin: 0.5em;
 }
 
+.newPost {
+    height: 15vh;
+
+    margin: 2em;
+
+    position:fixed;
+    top: 10;
+    left: 20;
+    right: 0;
+    bottom: 0;
+}
+

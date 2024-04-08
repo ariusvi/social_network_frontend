@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userData } from '../../app/slices/userSlice';
+import selloPost from '../../img/sello_post.png'
 
 export const Home = () => {
 
@@ -42,11 +43,12 @@ export const Home = () => {
     return (
         <>
             <div className='homeDesign'>
+            
                 <div className='postsRoster'>
                     {posts.map(post => {
                         return (
-                            <div className='paperPost'>
-                            <div key={post._id} className='postDesign'>
+                            <div key={post._id} className='paperPost'>
+                            <div className='postDesign'>
                                 <div> </div>
                                 <div className='postTitle'>{post.title}</div>
                                 <div ><img className='postImage' src={post.image} alt="post's image"></img></div>
@@ -58,6 +60,7 @@ export const Home = () => {
                         )
                     })}
                 </div>
+                <div ><img className='newPost' src={selloPost} alt="Sello Post"  /></div>
             </div>
         </>
     )

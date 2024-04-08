@@ -53,10 +53,8 @@
 }
 
 .nickname{
-    font-family: "Parisienne", cursive;
-    font-style: normal;
     font-weight: bold;
 
-    font-size: 3em;
+    font-size: 2em;
     color: #b88914;
 }
