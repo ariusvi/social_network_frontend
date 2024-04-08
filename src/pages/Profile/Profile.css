@@ -1,7 +1,7 @@
 .profileDesign {
-    height: 90vh;
-    min-width: 100vw;
+    min-height: 90vh;
     max-width: fit-content;
+    width: 100vw;
 
     display: flex;
     flex-direction: column;
