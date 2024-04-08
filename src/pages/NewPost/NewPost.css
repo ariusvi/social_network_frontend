@@ -1,7 +1,6 @@
 .newPostDesign {
     min-height: 90vh;
-    max-width: fit-content;
-    width: 100vw;
+    min-width: 100vw;
 
     display: flex;
     flex-direction: column;
@@ -22,6 +21,44 @@
     align-items: center;
 
     background-image: url(../../img/pergamino1.svg); 
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.inputsPostDesign{
+    height: 80vh;
+    width: 15vw;
+
+    margin: 2em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: transparent;
+
+    color:rgb(139, 110, 67);
+    font-weight: bold;
+
+    padding-top: 2em;
+    padding-left: 4em;
+    padding-right: 4em;
+
+    border:solid 3px red; 
+
+
+}
+
+.postButton{
+    height: 6.5em;
+    width: 8em;
+
+    background-color: transparent;
+
+    margin: 1em;
+
+    background-image: url(../../img/sello_post.png);
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;

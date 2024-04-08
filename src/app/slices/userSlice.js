@@ -19,24 +19,11 @@ export const userSlice = createSlice({
                 ...action.payload
             }
         },
-        okRegister: (state) =>{
-            return {
-                ...state,
-                isRegistered: true,
-            }
-        },
-        notRegister: (state , action) =>{
-            return {
-                ...state,
-                isRegistered: false,
-                error: action.payload
-            }
-        },
-    }
+        }
 
 });
 
-export const { login, logout, okRegister, notRegister } = userSlice.actions;
+export const { login, logout, } = userSlice.actions;
 
 export const userData = (state) => state.user;
 

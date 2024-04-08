@@ -4,8 +4,7 @@ import {React,  useState } from "react";
 import {useNavigate} from 'react-router-dom';
 import { registerUser } from '../../services/apiCalls';
 import { CustomInput } from '../../common/CustomInput/CustomInput';
-import { okRegister, notRegister } from "../../app/slices/userSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export const Register = () => { 
 
