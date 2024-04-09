@@ -1,6 +1,8 @@
 .registerDesign {
-    height: 90h;
-    width: 100vw;
+    min-height: 100vh;
+    max-height: fit-content;
+    min-width: 100vw;
+    max-width: fit-content;
 
     display: flex;
     flex-direction: column;
@@ -14,10 +16,10 @@
 }
 
 .paper{
-    height: 90em;
+    height: 50em;
     width: 30em;
 
-    margin: 1.5em;
+    /* margin-top: 1em; */
 
     display: flex;
     flex-direction: column;

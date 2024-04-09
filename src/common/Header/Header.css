@@ -1,13 +1,21 @@
 .headerDesign{
 
     height: 10vh;
-    width: 100vw;
+    width: 30vw;
 
     background-color: black;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+
+    /* ver como hacer para que haga un degradado hacia abajo */
 }
 
 .outDesign{

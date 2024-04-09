@@ -1,6 +1,8 @@
 .loginDesign {
-    height: 90vh;
-    width: 100vw;
+    min-height: 100vh;
+    max-height: fit-content;
+    min-width: 100vw;
+    max-width: fit-content;
 
     display: flex;
     flex-direction: column;
@@ -27,8 +29,6 @@
 .paper{
     height: 50em;
     width: 30em;
-
-    margin: 1.5em;
 
     display: flex;
     flex-direction: column;
