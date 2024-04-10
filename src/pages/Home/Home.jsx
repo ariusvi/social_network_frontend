@@ -1,20 +1,19 @@
 import './Home.css'
 
 import { searchData } from '../../app/slices/searchSlice';
-import { getPosts } from '../../services/apiCalls';
+import { getPosts, likePost } from '../../services/apiCalls';
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userData } from '../../app/slices/userSlice';
 import selloPost from '../../img/sello_post.png'
 
-
 export const Home = () => {
 
     const navigate = useNavigate();
 
     //redux to read mode 
-    // const searchRedux = useSelector(searchData);
+    // const searchRedux = useSelector(searchData); //todo user search
 
     const reduxUser = useSelector(userData);
     const token = reduxUser.credentials.token;
@@ -24,6 +23,9 @@ export const Home = () => {
             navigate('/login')
         }
     }, [reduxUser]);
+
+
+    //----------------GET POSTS----------------
 
     const [posts, setPosts] = useState([]);
 
@@ -39,7 +41,21 @@ export const Home = () => {
         getPostsData()
     }, [posts, token])
 
+    //--------------------LIKE POST--------------------
 
+    const handleLike = async (postId) => {
+        try {
+            const response = await likePost(token, postId, reduxUser._id);
+            if (response) {
+                const updatedPost = response.data;
+                setPosts(posts.map(post => post._id === updatedPost._id ? updatedPost : post));
+            } else {
+                console.log('No response from likePost');
+            }
+        } catch (error) {
+            console.log(error, "error handleLike");
+        }
+    }
     return (
         <>
             <div className='homeDesign'>
@@ -55,8 +71,7 @@ export const Home = () => {
                                 <div >{post.image && <img className='postImage' src={post.image} alt="post's image"></img>}</div>
                                 <div>{post.text}</div>
                                 <div>{post.author.nickname}</div>
-                                <div>{post.like.length}</div> {/* nº de likes que hay, falta el botón de like */}
-                                
+                                <div><button  onClick={() => {handleLike(post._id)}}>Like</button>{post.like.length}</div> 
                             </div>
                             </div>
                         )

@@ -99,7 +99,7 @@ export const updateProfile = async (token, data) => {
     } catch (error) {
         throw error;
     }
-}
+} //todo
 
 export const getPosts = async (token) => {
 
@@ -213,12 +213,36 @@ export const getPost = async (token, postId) => {
         const data = await response.json();
 
         if (!data.success) {
-            throw new Error(data.message);
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
         console.log(data.message);
 
         return data;
     } catch (error) {
-        throw error;
+        console.error('There was a problem with the fetch operation: ', error);
+    }
+}
+
+export const likePost = async (token, postId, userId) => {
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({ userId })
+    };
+
+    try {
+        const response = await fetch(`${root}posts/like/${postId}`, options);
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return data;
+    } catch (error) {
+        console.error('There was a problem with the fetch operation: ', error);
     }
 }
