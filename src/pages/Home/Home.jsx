@@ -40,13 +40,13 @@ export const Home = () => {
     }, [posts, token])
 
 
-
     return (
         <>
             <div className='homeDesign'>
             
                 <div className='postsRoster'>
-                    {posts.map(post => {
+                    {posts && posts.length > 0 ? 
+                        (posts.map(post => {
                         return (
                             <div key={post._id} className='paperPost'>
                             <div className='postDesign'>
@@ -55,11 +55,13 @@ export const Home = () => {
                                 <div >{post.image && <img className='postImage' src={post.image} alt="post's image"></img>}</div>
                                 <div>{post.text}</div>
                                 <div>{post.author.nickname}</div>
-                                <div>{post.likes}</div>
+                                <div>{post.like.length}</div> {/* nº de likes que hay, falta el botón de like */}
+                                
                             </div>
                             </div>
                         )
-                    })}
+                    }))
+                    : <div>Please register-in </div>}
                 </div>
                 <div><img className='newPost' src={selloPost} alt="Sello Post" onClick={() => navigate('/newpost')} /></div>
             </div>

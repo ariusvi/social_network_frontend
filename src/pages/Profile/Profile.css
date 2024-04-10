@@ -13,8 +13,8 @@
     font-weight: bold;
 }
 .paperProfile{
-    height: 70vh;
-    width: 60vw;
+    height: 80vh;
+    width: 50vw;
 
     margin: 1.5em;
 
@@ -30,7 +30,7 @@
 
 .profileData{
     height: 65vh;
-    width: 15vw;
+    width: 20vw;
 
     margin: 1.5em;
 
@@ -39,11 +39,7 @@
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
 
     background-color: transparent;
-
-    padding-top: 2em;
-    padding-left: 4em;
-    padding-right: 4em;
-
+    border:solid 3px red;
 }
 
 .avatarProfile{
