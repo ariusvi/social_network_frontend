@@ -29,17 +29,17 @@
 }
 
 .profileData{
-    height: 65vh;
-    width: 20vw;
+    height: 63vh;
+    width: 25vw;
 
-    margin: 1.5em;
+    margin: 5em;
 
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
 
     background-color: transparent;
-    border:solid 3px red;
+    border:solid 3px yellow;
 }
 
 .avatarProfile{
@@ -71,3 +71,20 @@
     cursor: pointer;
 }
 
+
+.ButtonDeletePost{
+    background-image: url(../../img/deletepost_icon.png);
+    background-color: transparent;
+    background-size: contain;
+
+    height: 7em;
+    width: 7em;
+}
+
+.buttonTransparent{
+    background-color: transparent;
+    height: 7em;
+    width: 7em;
+
+    display:contents;
+}

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { userData } from "../../app/slices/userSlice";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getMyPosts} from "../../services/apiCalls";
+import { deletePost, getMyPosts } from "../../services/apiCalls";
 import selloPost from '../../img/sello_post.png'
 
 
@@ -24,6 +24,8 @@ export const Profile = () => {
     }, [reduxUser])
     //--------------------------------------------------------------
 
+
+    //--------------------GET MY POSTS--------------------
     const [myPosts, setMyPosts] = useState([]);
 
     useEffect(() => {
@@ -39,8 +41,24 @@ export const Profile = () => {
     }, [myPosts, token])
 
 
+    //--------------------DELETE MY POST--------------------
+    const [successMessage, setSuccessMessage] = useState(null);
+
+    const deleteMyPost = async (postId) => {
+        try {
+            const response = await deletePost(token, postId)
+            const data = response.data
+            setMyPosts(myPosts.filter(post => post._id !== data._id))
+            setSuccessMessage("Post deleted successfully");
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <>
+        {successMessage && <div>{successMessage}</div>}
             <div className='profileDesign'>
                 <div className="paperProfile">
                     <div className='profileData'>
@@ -64,12 +82,14 @@ export const Profile = () => {
                         return (
                             <div key={post._id} className='paperPost'>
                                 <div className='postDesign'>
+                                
                                     <div> </div>
                                     <div className='postTitle'>{post.title}</div>
                                     <div >{post.image && <img className='postImage' src={post.image} alt="post's image"></img>}</div>
                                     <div>{post.text}</div>
                                     <div>{post.author.nickname}</div>
                                     <div>{post.likes}</div>
+                                    <button className="buttonTransparent" onClick={() => deleteMyPost(post._id)}><img className="ButtonDeletePost"></img></button>
                                 </div>
                             </div>
                         )

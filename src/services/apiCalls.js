@@ -77,29 +77,29 @@ export const getProfile = async (token) => {
 };
 
 export const updateProfile = async (token, data) => {
-    
-        const options = {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            },
-            body: JSON.stringify(data)
-        };
 
-        try {
-            const response = await fetch(`${root}users/profile`, options);
-            const data = await response.json();
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(data)
+    };
 
-            if (!data.success) {
-                throw new Error(data.message);
-            }
+    try {
+        const response = await fetch(`${root}users/profile`, options);
+        const data = await response.json();
 
-            return data;
-        } catch (error) {
-            throw error;
+        if (!data.success) {
+            throw new Error(data.message);
         }
+
+        return data;
+    } catch (error) {
+        throw error;
     }
+}
 
 export const getPosts = async (token) => {
 
@@ -150,26 +150,75 @@ export const getMyPosts = async (token) => {
 }
 
 export const createPost = async (token, post) => {
-    
-        const options = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            },
-            body: JSON.stringify(post)
-        };
-    
-        try {
-            const response = await fetch(`${root}posts`, options);
-            const data = await response.json();
-    
-            if (!data.success) {
-                throw new Error(data.message);
-            }
-    
-            return data;
-        } catch (error) {
-            throw error;
+
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(post)
+    };
+
+    try {
+        const response = await fetch(`${root}posts`, options);
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message);
+        }
+
+        return data;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export const deletePost = async (token, postId) => {
+
+    const options = {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
         }
     }
+
+    try {
+        const response = await fetch(`${root}posts/${postId}`, options);
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message);
+        }
+
+        return data;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export const getPost = async (token, postId) => {
+
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+    };
+    
+    try {
+        const response = await fetch(`${root}posts/${postId}`, options);
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message);
+        }
+        console.log(data.message);
+
+        return data;
+    } catch (error) {
+        throw error;
+    }
+}

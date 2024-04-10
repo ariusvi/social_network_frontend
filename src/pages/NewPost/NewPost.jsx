@@ -3,14 +3,13 @@ import "./NewPost.css";
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { createPost } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { userData } from "../../app/slices/userSlice";
 import { React, useState } from "react";
 
 export const NewPost = () => {
 
     const navigate = useNavigate();
-    // const dispatch = useDispatch();
 
     const reduxUser = useSelector(userData);
     const token = reduxUser.credentials.token;
@@ -28,7 +27,7 @@ export const NewPost = () => {
     });
 
     const [msgError, setMsgError] = useState("");
-    
+
 
     const inputHandler = (e) => {
         setPostCredentials(
@@ -55,52 +54,55 @@ export const NewPost = () => {
                 text: "",
             })
 
+            const newPostId = fetched.data._id; // si que me da el id del post creado
+            console.log("New post ID:", newPostId);
+
             setMsgError(fetched.message);
 
-            setTimeout(() => { navigate("/home") }, 500) //todo redirigir al post creado
+             navigate(`/posts/${newPostId}`) //no redirige al post creado
 
         } catch (error) {
             setErrorMessage(error.message);
         }
+    }
 
-}
-
-return (
-    <>
-        <div className="newPostDesign">
-            <div className="paperNewPost">
-                <div className="inputsPostDesign">
-                    Post's Title:
-                    <CustomInput
-                        className={"inputDesign"}
-                        type={"text"}
-                        name={"title"}
-                        value={postCredentials.title || ""}
-                        placeholder={"title"}
-                        changeEmit={inputHandler}
-                    />
-                    Image:
-                    <CustomInput
-                        className={"inputDesign"}
-                        type={"text"}
-                        name={"image"}
-                        value={postCredentials.image || ""}
-                        placeholder={"image's URL"}
-                        changeEmit={inputHandler}
-                    />
-                    Post:
-                    <CustomInput
-                        className={"inputDesign"}
-                        type={"text"}
-                        name={"text"}
-                        value={postCredentials.text || ""}
-                        placeholder={"text"}
-                        changeEmit={inputHandler}
-                    />
-                    <button className="postButton" onClick={addPost}></button>
+    
+    return (
+        <>
+            <div className="newPostDesign">
+                <div className="paperNewPost">
+                    <div className="inputsPostDesign">
+                        Post's Title:
+                        <CustomInput
+                            className={"inputDesign"}
+                            type={"text"}
+                            name={"title"}
+                            value={postCredentials.title || ""}
+                            placeholder={"title"}
+                            changeEmit={inputHandler}
+                        />
+                        Image:
+                        <CustomInput
+                            className={"inputDesign"}
+                            type={"text"}
+                            name={"image"}
+                            value={postCredentials.image || ""}
+                            placeholder={"image's URL"}
+                            changeEmit={inputHandler}
+                        />
+                        Post:
+                        <CustomInput
+                            className={"inputDesign"}
+                            type={"text"}
+                            name={"text"}
+                            value={postCredentials.text || ""}
+                            placeholder={"text"}
+                            changeEmit={inputHandler}
+                        />
+                        <button className="postButton" onClick={addPost}></button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </>
-);
+        </>
+    );
 }
