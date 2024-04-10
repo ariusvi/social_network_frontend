@@ -20,6 +20,7 @@
     flex-wrap: wrap;
 }
 .paperPost{
+
     height: 80vh;
     width: 50vw;
 
@@ -38,6 +39,11 @@
 }
 
 .postDesign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
     height: 80vh;
     width: 20vw;
 
@@ -54,7 +60,6 @@
     padding-left: 4em;
     padding-right: 4em;
 
-    border:solid 3px red; 
 }
 
 .postImage{
@@ -89,3 +94,24 @@
     cursor: pointer;
 }
 
+.likeButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 3em;
+
+    font-weight: bold;
+    font-size: 1.2em;
+
+    background-color: transparent;
+
+    border:none;
+    transition: 0.3s;
+}
+
+.likeButton:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+    color:#a57238
+}

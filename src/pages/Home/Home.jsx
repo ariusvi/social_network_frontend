@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { userData } from '../../app/slices/userSlice';
 import selloPost from '../../img/sello_post.png'
 
+
 export const Home = () => {
 
     const navigate = useNavigate();
@@ -70,8 +71,8 @@ export const Home = () => {
                                 <div className='postTitle'>{post.title}</div>
                                 <div >{post.image && <img className='postImage' src={post.image} alt="post's image"></img>}</div>
                                 <div>{post.text}</div>
-                                <div>{post.author.nickname}</div>
-                                <div><button  onClick={() => {handleLike(post._id)}}>Like</button>{post.like.length}</div> 
+                                <div>Author: {post.author.nickname}</div>
+                                <div><button className="likeButton" onClick={() => {handleLike(post._id)}}>Like</button>{post.like.length}</div> 
                             </div>
                             </div>
                         )
