@@ -3,14 +3,19 @@ import "./Profile.css";
 import { useNavigate } from 'react-router-dom';
 import { userData } from "../../app/slices/userSlice";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { deletePost, getMyPosts } from "../../services/apiCalls";
 import selloPost from '../../img/sello_post.png'
 
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root') // replace with your app's id
 
 export const Profile = () => {
 
     const navigate = useNavigate();
+
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     //redux to read mode
     const reduxUser = useSelector(userData);
@@ -49,7 +54,7 @@ export const Profile = () => {
             const response = await deletePost(token, postId)
             const data = response.data
             setMyPosts(myPosts.filter(post => post._id !== data._id))
-            setSuccessMessage("Post deleted successfully");
+            setModalIsOpen(true);
         }
         catch (error) {
             console.log(error)
@@ -58,7 +63,14 @@ export const Profile = () => {
 
     return (
         <>
-        {successMessage && <div>{successMessage}</div>}
+        <Modal className={'modalDeletePost'}
+                isOpen={modalIsOpen}
+                onRequestClose={() => setModalIsOpen(false)}
+                contentLabel="Success Modal"
+            >
+                <h2>Post deleted successfully</h2>
+                <button onClick={() => setModalIsOpen(false)}>Close</button>
+            </Modal>
             <div className='profileDesign'>
                 <div className="paperProfile">
                     <div className='profileData'>
