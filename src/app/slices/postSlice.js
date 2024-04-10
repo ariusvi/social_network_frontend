@@ -6,28 +6,21 @@ export const postSlice = createSlice({
         posts: {}
     },
     reducers: {
-        addPost: (state, action) => {
-            return {
-                ...state,
-                posts: [...state.posts, action.payload]
-            }
-        },
-        getPosts: (state, action) => {
-            return {
-                ...state,
-                posts: action.payload
-            }
-        },
-        deletePost: (state, action) => {
-            return {
-                ...state,
-                posts: state.posts.filter(post => post._id !== action.payload)
+        deletingPost: (state = initialState, action) => {
+            switch (action.type) {
+                case 'DELETE_POST':
+                    return {
+                        ...state,
+                        posts: state.posts.filter(post => post._id !== action.payload),
+                    };
+                default:
+                    return state;
             }
         }
     }
 });
 
-export const {addPost, getPosts, deletePost} = postSlice.actions;
+export const {deletingPost} = postSlice.actions;
 
 export const postData = (state) => state.post;
 

@@ -76,6 +76,31 @@ export const getProfile = async (token) => {
 
 };
 
+export const updateProfile = async (token, data) => {
+    
+        const options = {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(data)
+        };
+
+        try {
+            const response = await fetch(`${root}users/profile`, options);
+            const data = await response.json();
+
+            if (!data.success) {
+                throw new Error(data.message);
+            }
+
+            return data;
+        } catch (error) {
+            throw error;
+        }
+    }
+
 export const getPosts = async (token) => {
 
     const options = {
@@ -148,4 +173,3 @@ export const createPost = async (token, post) => {
             throw error;
         }
     }
-

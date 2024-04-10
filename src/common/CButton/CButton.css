@@ -1,0 +1,23 @@
+.CustomButtonDesig{
+    height: 5vh;
+    width: 10vw;
+
+    border-radius: 10%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: black;
+    color:bisque;
+
+    transition: 0.3s;
+}
+
+.CustomButtonDesig:hover{
+    background-color: bisque;
+    color:black;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
