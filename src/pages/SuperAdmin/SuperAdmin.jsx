@@ -14,6 +14,14 @@ export const SuperAdmin = () => {
     const reduxUser = useSelector(userData);
     const token = reduxUser.credentials.token || ({});
 
+    //----------------SUPERADMIN----------------
+
+    useEffect(() => {
+        if (reduxUser.credentials.user.roleName !== "super_admin") {
+            navigate('/home');
+        }
+    }, [reduxUser, navigate]);
+
     //----------------GET POSTS----------------
 
     const [posts, setPosts] = useState([]);

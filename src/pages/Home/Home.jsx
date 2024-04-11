@@ -25,7 +25,6 @@ export const Home = () => {
         }
     }, [reduxUser]);
 
-
     //----------------GET POSTS----------------
 
     const [posts, setPosts] = useState([]);
