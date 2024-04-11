@@ -1,7 +1,7 @@
 .profileDesign {
     min-height: 90vh;
-    max-width: fit-content;
-    width: 100vw;
+    max-height: 100%;
+    width: 99vw;
 
     display: flex;
     flex-direction: column;
@@ -11,6 +11,7 @@
     background-color: #303a6bdd;
     color: rgb(139, 110, 67);
     font-weight: bold;
+
 }
 .paperProfile{
     height: 80vh;
@@ -58,13 +59,13 @@
 .newPost {
     height: 15vh;
 
-    margin: 2em;
+    /* margin: 2em; */
 
     background-color: transparent;
 
     position:fixed;
-    top: 10;
-    left: 20;
+    top: 1;
+    left: 1;
     right: 0;
     bottom: 0;
 

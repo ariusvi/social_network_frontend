@@ -1,6 +1,7 @@
 .newPostDesign {
     min-height: 90vh;
-    min-width: 100vw;
+    max-height: 100%;
+    width: 99vw;
 
     display: flex;
     flex-direction: column;
