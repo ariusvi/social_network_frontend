@@ -106,12 +106,18 @@
 
     background-color: transparent;
 
-    border:none;
+    border: 0;
     transition: 0.3s;
+
 }
 
 .likeButton:hover{
     transform: scale(1.2);
     transition: transform 0.3s ease-in-out;
     color:#a57238
+}
+
+.likeButton:focus {
+    outline: none;
+    border: none;
 }

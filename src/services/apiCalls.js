@@ -61,7 +61,6 @@ export const getProfile = async (token) => {
     };
 
     try {
-        // users/profile
         const response = await fetch(`${root}users/profile`, options)
         const data = await response.json()
 
@@ -246,3 +245,4 @@ export const likePost = async (token, postId, userId) => {
         console.error('There was a problem with the fetch operation: ', error);
     }
 }
+
