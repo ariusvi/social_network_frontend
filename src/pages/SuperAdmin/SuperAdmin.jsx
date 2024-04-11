@@ -64,40 +64,73 @@ export const SuperAdmin = () => {
     }, [reduxUser]);
 
 
+
     return (
         <div className="superadmin">
----------------------------USUARIOS
-            <div className="usersAdmin">
-                {Users.length > 0 ? Users.map(user => {
-                    return (
-                        <div key={user._id} className="user">
-                            <p>{user._id}</p>
-                            <p>{user.nickname}</p>
-                            <p>{user.email}</p>
-                            <p>{user.role}</p>
-                            <p>{user.createdAt}</p>
-                            <p>{user.updatedAt}</p>
-                        </div>
-                    )
-                }) : <p>No users</p>}
+            <div className="titleSA">Baldur's Board - SuperAdmin</div>
+<div className="usersAdmin">
+<div className="titleTable">USERS</div>
+    {Users.length > 0 ? (
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nickname</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {Users.map(user => (
+                    <tr key={user._id}>
+                        <td>{user._id}</td>
+                        <td>{user.nickname}</td>
+                        <td>{user.email}</td>
+                        <td>{user.role}</td>
+                        <td>{new Date(user.createdAt).toLocaleString("es-ES", { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
+                        <td>{new Date(user.updatedAt).toLocaleString("es-ES", { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    ) : (
+        <p>No users</p>
+    )}
 </div>
-------------------------------POSTS
-                <div className="postsAdmin">
-                    {posts.length > 0 ? posts.map(post => {
-                        return (
-                            <div key={post._id} className="post">
-                                <p>{post._id}</p>
-                                <p>{post.title}</p>
-                                <p>{post.text}</p>
-                                <p>{post.image}</p>
-                                <p>{post.author.nickname}</p>
-                                <p>{post.like}</p>
-                                <p>{post.createdAt}</p>
-                                <p>{post.updatedAt}</p>
-                            </div>
-                        )
-                    }) : <p>No posts</p>}
-                </div>
+
+<div className="postsAdmin">
+    <div className="titleTable">POSTS</div>
+    {posts.length > 0 ? (
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Like</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {posts.map(post => (
+                    <tr key={post._id}>
+                        <td>{post._id}</td>
+                        <td>{post.title}</td>
+                        <td>{post.author.nickname}</td>
+                        <td>{post.like}</td>
+                        <td>{new Date(post.createdAt).toLocaleString("es-ES", { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
+                        <td>{new Date(post.updatedAt).toLocaleString("es-ES", { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    ) : (
+        <p>No posts</p>
+    )}
+</div>
             
         </div>
     )
