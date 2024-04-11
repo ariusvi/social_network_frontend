@@ -9,7 +9,7 @@ import selloPost from '../../img/sello_post.png'
 
 import Modal from 'react-modal';
 
-Modal.setAppElement('#root') 
+Modal.setAppElement('#root')
 
 export const Profile = () => {
 
@@ -63,7 +63,7 @@ export const Profile = () => {
 
     return (
         <>
-        <Modal className={'modalDeletePost'}
+            <Modal className={'modalDeletePost'}
                 isOpen={modalIsOpen}
                 onRequestClose={() => setModalIsOpen(false)}
                 contentLabel="Success Modal"
@@ -83,6 +83,9 @@ export const Profile = () => {
                                     alt="user's avatar">
                                 </img>
                                 <div className="nickname">{reduxUser.credentials.user.nickname}</div>
+                                {reduxUser.credentials.user.roleName === "super_admin" ? (
+                                    <button className="buttonSA" onClick={() => navigate('/superadmin')}>SuperAdmin</button>
+                                ) : null}
                             </div>
                             <div>{reduxUser.credentials.user.biography}</div>
                         </div>
@@ -94,7 +97,7 @@ export const Profile = () => {
                         return (
                             <div key={post._id} className='paperPost'>
                                 <div className='postDesign'>
-                                
+
                                     <div> </div>
                                     <div className='postTitle'>{post.title}</div>
                                     <div >{post.image && <img className='postImage' src={post.image} alt="post's image"></img>}</div>

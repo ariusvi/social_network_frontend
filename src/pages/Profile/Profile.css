@@ -11,36 +11,49 @@
     background-color: #303a6bdd;
     color: rgb(139, 110, 67);
     font-weight: bold;
-
 }
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.paperProfile, .profileData {
+    animation: slideDown 1s ease-out;
+}
+
 .paperProfile{
     height: 80vh;
-    width: 50vw;
-
-    margin: 1.5em;
+    width: 30vw;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background-image: url(../../img/pergamino1.svg); 
+    background-color: black;
+
+    /* background-image: url(../../img/pergamino1.svg); 
     background-size:contain;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 
 .profileData{
     height: 50vh;
-    width: 25vw;
-
-    margin: 5em;
+    width: 30vw;
 
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
 
     background-color: transparent;
-    border:solid 3px yellow;
+
 }
 
 .avatarProfile{
@@ -80,6 +93,13 @@
 
     height: 7em;
     width: 7em;
+
+    transition: 0.3s;
+}
+
+.ButtonDeletePost:focus {
+    outline: none;
+    border: none;
 }
 
 .buttonTransparent{
@@ -110,4 +130,36 @@
     width: 30vw;
 
     border-radius: 20%;
+}
+
+.buttonSA{
+    display: inline-block;
+    outline: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 15%;
+    min-width: 10em;
+    height: 3em;
+    font-size: 1em;
+    background-color: rgb(224, 148, 33);
+    font-weight: 500;
+    color: #000000;
+
+    transition: 0.3s;
+    border: 0;
+
+
+}
+
+.buttonSA:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+    background-color: rgb(241, 171, 64);
+
+    box-shadow: 10px 8px 0px rgb(252, 254, 191);
+}
+
+.buttonSA:focus {
+    outline: none;
+    border: none;
 }
