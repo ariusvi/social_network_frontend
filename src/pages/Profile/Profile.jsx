@@ -9,7 +9,7 @@ import selloPost from '../../img/sello_post.png'
 
 import Modal from 'react-modal';
 
-Modal.setAppElement('#root') // replace with your app's id
+Modal.setAppElement('#root') 
 
 export const Profile = () => {
 
