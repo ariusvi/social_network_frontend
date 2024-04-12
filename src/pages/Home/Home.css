@@ -111,10 +111,44 @@
 .likeButton:hover{
     transform: scale(1.2);
     transition: transform 0.3s ease-in-out;
-    color:#a57238
+    color:#d9994f
 }
 
 .likeButton:focus {
     outline: none;
     border: none;
+}
+
+.modalfullPost{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    background-color: #303a6bdd;
+    color: rgb(216, 149, 48);
+    font-weight: bold;
+
+    height: 80vh;
+    width: 50vw;
+
+    border-radius: 20%;
+}
+
+.morePost{
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.morePost:hover{
+    color: #d9994f;
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
 }
