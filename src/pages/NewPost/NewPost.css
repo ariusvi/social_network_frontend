@@ -12,10 +12,10 @@
 }
 
 .paperNewPost{
-    height: 70vh;
-    width: 60vw;
+    height: 80vh;
+    width: 50vw;
 
-    margin: 1.5em;
+    margin-top: 1.7em;
 
     display: flex;
     flex-direction: column;
@@ -45,10 +45,6 @@
     padding-top: 2em;
     padding-left: 4em;
     padding-right: 4em;
-
-    border:solid 3px red; 
-
-
 }
 
 .postButton{

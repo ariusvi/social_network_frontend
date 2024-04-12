@@ -37,10 +37,10 @@
 }
 
 .paper{
-    height: 50em;
-    width: 30em;
+    height: 80vh;
+    width: 50vw;
 
-    margin: 1.5em;
+    margin-top: 2em;
 
     display: flex;
     flex-direction: column;
