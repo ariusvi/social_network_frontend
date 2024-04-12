@@ -131,11 +131,10 @@
     transform: translate(-50%, -50%);
 
 
-    background-color: #303a6bdd;
-    color: rgb(216, 149, 48);
-    font-weight: bold;
+    background-color: #e6ab54dd;
+    color: rgb(0, 0, 0);
 
-    height: 80vh;
+    height: 70vh;
     width: 50vw;
 
     border-radius: 20%;
@@ -151,4 +150,51 @@
     color: #d9994f;
     transform: scale(1.2);
     transition: transform 0.3s ease-in-out;
+}
+
+.modalfullPostInside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 60vh;
+    width: 40vw;
+}   
+
+.CloseButton{
+    display: inline-block;
+    outline: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 15%;
+
+    min-width: 10em;
+    height: 3em;
+    font-size: 1em;
+    font-weight: 500;
+
+    background-color: rgb(224, 148, 33);
+    color: #000000;
+
+    transition: 0.3s;
+    border: 0;
+
+    margin: 1em;
+}
+
+.CloseButton:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+    background-color: rgb(241, 203, 64);
+
+}
+
+.CloseButton:focus {
+    outline: none;
+    border: none;
+}
+
+.postTitleInside{
+    font-weight: bold;
 }
