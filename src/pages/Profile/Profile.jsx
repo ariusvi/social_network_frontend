@@ -97,7 +97,6 @@ export const Profile = () => {
                         return (
                             <div key={post._id} className='paperPost'>
                                 <div className='postDesign'>
-
                                     <div> </div>
                                     <div className='postTitle'>{post.title}</div>
                                     <div >{post.image && <img className='postImage' src={post.image} alt="post's image"></img>}</div>
