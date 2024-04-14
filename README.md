@@ -24,7 +24,7 @@ This project is the frontend part of a fictional social network website inspired
 
 The Baldur's Board is a frontend project aimed at replicating the user experience of a social media platform akin to Twitter, infused with the aesthetic and themes from the iconic Baldur's Gate video game series. 
 
-Users are provided with functionalities to register, log in, and customize their profiles, including options to set a nickname, upload an avatar, and write a biography. Additionally, users can create and share posts, each consisting of a title, an image (linked via URL), and a description. Furthermore, users can engage with the content by liking posts created by other users.
+Users are provided with functionalities to register, log in, and customize their profiles, including options to set a nickname, upload an avatar, and write a biography. Additionally, users can create and share posts, each consisting of a title, an image (linked via URL), and a description. Furthermore, users can engage with the content by liking posts created by other users. 
 
 
 # Stack ⚓
