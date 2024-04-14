@@ -68,6 +68,8 @@ export const SuperAdmin = () => {
     return (
         <div className="superadmin">
             <div className="titleSA">Baldur's Board - SuperAdmin</div>
+
+{/* --------------------------------- USERS --------------------------- */}
 <div className="usersAdmin">
 <div className="titleTable">USERS</div>
     {Users.length > 0 ? (
@@ -100,6 +102,7 @@ export const SuperAdmin = () => {
     )}
 </div>
 
+{/* ------------------------------- POSTS ------------------------------- */}
 <div className="postsAdmin">
     <div className="titleTable">POSTS</div>
     {posts.length > 0 ? (

@@ -29,7 +29,7 @@ export const Profile = () => {
     if (!reduxUser.credentials.token) {
         throw new Error('No token provided');
     }
-        const token = reduxUser.credentials.token;
+    const token = reduxUser.credentials.token;
     // redux to write mode
     const dispatch = useDispatch();
 
@@ -77,26 +77,18 @@ export const Profile = () => {
     const updateDataProfile = async () => {
         try {
             const fetched = await updateProfile(reduxUser.credentials.token, user)
-            console.log(fetched, "fetched data update profile") ;
-            setUser((prevState) => ({ 
-                ...prevState, 
+            setUser((prevState) => ({
+                ...prevState,
                 nickname: fetched.data.nickname || fetched.data.user.nickname,
                 biography: fetched.data.biography || fetched.data.user.biography,
                 avatar: fetched.data.avatar || fetched.data.user.avatar,
-                }))
-                dispatch(updated(
-                    {credentials: {
-                        ...reduxUser.credentials,
-                        user: {
-                            ...reduxUser.credentials.user,
-                            nickname: user.nickname,
-                            biography: user.biography,
-                            avatar: user.avatar
-                        }
-                    }
-                },
-                setWrite(false)
-                ))
+            }))
+            dispatch(updated({
+                nickname: fetched.data.nickname || fetched.data.user.nickname,
+                biography: fetched.data.biography || fetched.data.user.biography,
+                avatar: fetched.data.avatar || fetched.data.user.avatar
+            }))
+            setWrite(false)
         }
         catch (error) {
             console.log(error, "Updating profile error")
@@ -114,7 +106,7 @@ export const Profile = () => {
                 <h2>Post deleted successfully</h2>
                 <button onClick={() => setModalIsOpen(false)}>Close</button>
             </Modal>
-{/* ------------------------- PROFILE ---------------------- */}
+            {/* ------------------------- PROFILE ---------------------- */}
             <div className='profileDesign'>
                 <div className="paperProfile">
                     <div className='profileData'>
@@ -132,15 +124,35 @@ export const Profile = () => {
                                 ) : null}
                             </div>
                             <div>{reduxUser.credentials.user.biography}</div>
-                            <button 
-                            className="buttonUpdate"
-                            title={write === "" ? "Save changes" : "Edit profile"}
-                            onClick={ write === false ? updateDataProfile : () => setWrite(true)}
+                            <button
+                                className="buttonUpdate"
+                                title={write ? "Save changes" : "Edit profile"}
+                                onClick={() => setWrite(!write)}
                             >EDIT PROFILE</button>
                         </div>
                     </div>
+                    {/*  ------------------------- FORM EDIT PROFILE  -------------------------*/}
+                    <div className="editProfile">
+                    {write && (
+                        <form onSubmit={updateDataProfile}>
+                                Avatar:
+                            <label>
+                                <input type="text" value={user.avatar} onChange={e => setUser({ ...user, avatar: e.target.value })} />
+                            </label>
+                                Nickname:
+                            <label>
+                                <input type="text" value={user.nickname} onChange={e => setUser({ ...user, nickname: e.target.value })} />
+                            </label>
+                                Biography:
+                            <label>
+                                <input type="text" value={user.biography} onChange={e => setUser({ ...user, biography: e.target.value })} />
+                            </label>
+                            <input type="submit" value="Submit" />
+                        </form>
+                    )}
+                    </div>
                 </div>
-{/* ------------------------- POSTS ---------------------- */}
+                {/* ------------------------- POSTS ---------------------- */}
                 <div><img className='newPost' src={selloPost} alt="Sello Post" onClick={() => navigate('/newpost')} /></div>
                 <div className='postsRoster'>
                     {myPosts.map(post => {

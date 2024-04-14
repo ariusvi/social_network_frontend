@@ -20,8 +20,8 @@ export const userSlice = createSlice({
             }
         },
         updated: (state, action) => {
-            return {
-                ...state,
+            state.credentials.user = {
+                ...state.credentials.user,
                 ...action.payload
             }
         },

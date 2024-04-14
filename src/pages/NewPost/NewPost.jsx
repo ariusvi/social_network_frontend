@@ -54,12 +54,11 @@ export const NewPost = () => {
                 text: "",
             })
 
-            const newPostId = fetched.data._id; // si que me da el id del post creado
-            console.log("New post ID:", newPostId);
+            const newPostId = fetched.data._id; 
 
             setMsgError(fetched.message);
 
-             navigate(`/posts/${newPostId}`) //no redirige al post creado
+            //  navigate(`/posts/${newPostId}`) //todo redirect to new post
 
         } catch (error) {
             setErrorMessage(error.message);

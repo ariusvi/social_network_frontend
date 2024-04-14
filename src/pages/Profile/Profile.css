@@ -13,6 +13,30 @@
     font-weight: bold;
 }
 
+.paperProfile{
+    height: 80vh;
+    width: 50vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: black;
+}
+
+.profileData{
+    height: 50vh;
+    width:  40vw;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    background-color: transparent;
+
+    margin: 1em;
+}
+
 @keyframes slideDown {
     0% {
         transform: translateY(-100%);
@@ -26,29 +50,6 @@
 
 .paperProfile, .profileData {
     animation: slideDown 1s ease-out;
-}
-
-.paperProfile{
-    height: 80vh;
-    width: 30vw;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: black;
-}
-
-.profileData{
-    height: 50vh;
-    width: 30vw;
-
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-
-    background-color: transparent;
-
 }
 
 .avatarProfile{
@@ -189,4 +190,16 @@
 .buttonUpdate:focus {
     outline: none;
     border: none;
+}
+
+.editProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 20vh;
+    width: 30vw;
+
+    border-radius: 20%;
 }
