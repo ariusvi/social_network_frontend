@@ -1,10 +1,10 @@
 import "./Profile.css";
 
 import { useNavigate } from 'react-router-dom';
-import { userData } from "../../app/slices/userSlice";
-import { useSelector } from "react-redux";
+import { updated, userData } from "../../app/slices/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
-import { deletePost, getMyPosts } from "../../services/apiCalls";
+import { deletePost, getMyPosts, updateProfile } from "../../services/apiCalls";
 import selloPost from '../../img/sello_post.png'
 
 import Modal from 'react-modal';
@@ -16,10 +16,22 @@ export const Profile = () => {
     const navigate = useNavigate();
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [write, setWrite] = useState(false);
+    const [user, setUser] = useState({
+        nickname: "",
+        biography: "",
+        avatar: "",
+    });
 
     //redux to read mode
     const reduxUser = useSelector(userData);
-    const token = reduxUser.credentials.token || ({});
+
+    if (!reduxUser.credentials.token) {
+        throw new Error('No token provided');
+    }
+        const token = reduxUser.credentials.token;
+    // redux to write mode
+    const dispatch = useDispatch();
 
     //--------------------NO TOKEN - GO TO LOGIN--------------------
     useEffect(() => {
@@ -61,6 +73,37 @@ export const Profile = () => {
         }
     }
 
+    // ------------------------- UPDATE PROFILE ----------------------
+    const updateDataProfile = async () => {
+        try {
+            const fetched = await updateProfile(reduxUser.credentials.token, user)
+            console.log(fetched, "fetched data update profile") ;
+            setUser((prevState) => ({ 
+                ...prevState, 
+                nickname: fetched.data.nickname || fetched.data.user.nickname,
+                biography: fetched.data.biography || fetched.data.user.biography,
+                avatar: fetched.data.avatar || fetched.data.user.avatar,
+                }))
+                dispatch(updated(
+                    {credentials: {
+                        ...reduxUser.credentials,
+                        user: {
+                            ...reduxUser.credentials.user,
+                            nickname: user.nickname,
+                            biography: user.biography,
+                            avatar: user.avatar
+                        }
+                    }
+                },
+                setWrite(false)
+                ))
+        }
+        catch (error) {
+            console.log(error, "Updating profile error")
+            throw error
+        }
+    };
+
     return (
         <>
             <Modal className={'modalDeletePost'}
@@ -71,6 +114,7 @@ export const Profile = () => {
                 <h2>Post deleted successfully</h2>
                 <button onClick={() => setModalIsOpen(false)}>Close</button>
             </Modal>
+{/* ------------------------- PROFILE ---------------------- */}
             <div className='profileDesign'>
                 <div className="paperProfile">
                     <div className='profileData'>
@@ -88,9 +132,15 @@ export const Profile = () => {
                                 ) : null}
                             </div>
                             <div>{reduxUser.credentials.user.biography}</div>
+                            <button 
+                            className="buttonUpdate"
+                            title={write === "" ? "Save changes" : "Edit profile"}
+                            onClick={ write === false ? updateDataProfile : () => setWrite(true)}
+                            >EDIT PROFILE</button>
                         </div>
                     </div>
                 </div>
+{/* ------------------------- POSTS ---------------------- */}
                 <div><img className='newPost' src={selloPost} alt="Sello Post" onClick={() => navigate('/newpost')} /></div>
                 <div className='postsRoster'>
                     {myPosts.map(post => {

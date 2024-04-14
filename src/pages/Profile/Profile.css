@@ -153,7 +153,40 @@
 
 }
 
-.buttonSA:focus {
+.buttonUpdate:focus {
+    outline: none;
+    border: none;
+}
+
+.buttonUpdate{
+    display: inline-block;
+    outline: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 15%;
+
+    min-width: 10em;
+    height: 3em;
+    font-size: 1em;
+    font-weight: 500;
+
+    background-color: rgb(224, 148, 33);
+    color: #000000;
+
+    transition: 0.3s;
+    border: 0;
+
+    margin: 1em;
+}
+
+.buttonUpdate:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+    background-color: rgb(241, 171, 64);
+
+}
+
+.buttonUpdate:focus {
     outline: none;
     border: none;
 }
