@@ -1,7 +1,7 @@
 # Ract Frontend: Old Ink
 <img src="./src/img/banner.png" alt="OldInkBanner">  
 
-Welcome to the Baldur's Board's frontend api documentation. This api recreates a fictional social network website inspired in the game Baldur's Gate. This project is the frontend of [social_network_backend](https://github.com/ariusvi/social_network_backends) project.
+Welcome to the Baldur's Board's frontend api documentation. This api recreates a fictional social network website inspired in the game Baldur's Gate. This project is the frontend of [social_network_backend](https://github.com/ariusvi/social_network_backend) project.
 
 ---
     
